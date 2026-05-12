@@ -114,6 +114,23 @@ button{font:inherit}
 .footer-social img{width:20px;height:20px}
 .whatsapp-button{position:fixed;right:18px;bottom:18px;z-index:900;min-height:44px;display:inline-flex;align-items:center;gap:10px;padding:0 16px;color:#fff;background:#103928;border-radius:999px;box-shadow:0 10px 24px rgba(0,37,61,.2);font-size:14px;font-weight:700}
 .whatsapp-button img{width:20px;height:20px}
+.empresarios-page .topbar{display:none}
+.empresarios-page .main-nav{min-height:74px;box-shadow:0 2px 8px rgba(0,37,61,.25)}
+.empresarios-page .main-nav .container{width:calc(100% - 28px);max-width:none}
+.empresarios-page .nav-layout{min-height:74px;gap:30px}
+.empresarios-page .brand img{width:244px}
+.empresarios-page .primary-links{gap:28px}
+.empresarios-page .nav-link{font-size:15px;font-weight:600}
+.empresarios-page .nav-menu{gap:28px}
+.empresarios-page .nav-actions{gap:14px}
+.empresarios-page .search-button{width:48px;height:48px;margin-right:4px}
+.empresarios-page .btn{min-height:42px;border-radius:7px;font-size:14px}
+.empresarios-page .btn-outline{min-width:227px;color:var(--ink);border-color:var(--ink)}
+.empresarios-page .portal-dropdown .btn-primary{min-width:192px;justify-content:space-between;color:#8a8a8a;background:#fff;border-color:#9a9a9a;border-radius:6px 6px 0 0}
+.empresarios-page .portal-dropdown .btn-primary span{transform:rotate(225deg);color:#8a8a8a}
+.empresarios-page .portal-dropdown ul{top:42px;width:192px;display:block}
+.empresarios-page .portal-dropdown a{min-height:50px;padding:8px 15px;font-size:15px;line-height:1.05}
+.empresarios-page .mega-menu{top:74px}
 @media (max-width:991px){
   .container{width:min(100% - 32px,760px)}
   .topbar-content{align-items:stretch;flex-direction:column}
