@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Inicio de sesión - Portal Personas Banco Caja Social</title>
+  <link rel="icon" type="image/webp" href="../Images/iso-ban-caja-social.webp">
+  <link rel="stylesheet" href="portal-login.css">
+</head>
+<body>
+  <main class="login-page login-page-modern">
+    <section class="login-visual login-visual-modern" aria-label="Portal Personas Banco Caja Social"></section>
+
+    <section class="login-panel" aria-labelledby="login-title">
+      <div class="login-card">
+        <img class="brand-logo" src="../Images/Logo_type2.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundación Grupo Social.">
+
+        <h1 id="login-title">Bienvenido al Portal Personas</h1>
+
+        <p class="login-help">
+          Recuerde que su usuario está compuesto por su Tipo de Identificación
+          <strong>(CC, CE, NI, TI, PE)</strong> y su Número de Identificación sin
+          espacios, puntos ni comas.
+        </p>
+
+        <form class="login-form" action="#" method="post" novalidate>
+          <div class="form-field">
+            <label for="username">Usuario</label>
+            <input id="username" name="username" type="text" autocomplete="off" autofocus>
+            <small>Ejemplo: CC1234567890</small>
+            <p class="input-error" id="username-error" hidden>
+              Datos incorrectos. Recuerde iniciar con CC, CE, NI, TI, PE.
+            </p>
+          </div>
+
+          <div class="login-actions">
+            <button class="next-button" id="next-button" type="submit" disabled>Siguiente</button>
+
+            <div class="forgot-wrapper">
+              <button class="forgot-button" type="button" id="forgot-button" aria-expanded="false" aria-controls="forgot-menu">
+                ¿Olvidó su contraseña?
+                <span aria-hidden="true"></span>
+              </button>
+              <div class="forgot-menu" id="forgot-menu" hidden>
+                <a href="#">¿Olvidó su contraseña?</a>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <hr>
+
+        <p class="register-copy">
+          ¿Es un cliente nuevo?
+          <a href="#">Registrarse</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="portal-login.js"></script>
+</body>
+</html>

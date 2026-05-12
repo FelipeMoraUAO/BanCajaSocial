@@ -19,8 +19,8 @@
       <div class="container topbar-content">
         <nav class="audience-tabs" aria-label="Tipo de cliente">
           <a class="tab active" href="#">Personas</a>
-          <a class="tab" href="#">Empresarios</a>
-          <a class="tab" href="#">Empresas</a>
+          <a class="tab" href="pages/empresarios.html">Empresarios</a>
+          <a class="tab" href="pages/empresas.html">Empresas</a>
         </nav>
 
         <div class="topbar-links">
@@ -124,8 +124,8 @@
                 Ingresar al Portal
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Ingresar al Portal<br>Personas</a></li>
-                <li><a class="dropdown-item" href="#">Portal Personas<br>(Versión anterior)</a></li>
+                <li><a class="dropdown-item" href="pages/portal-personas.html">Ingresar al Portal<br>Personas</a></li>
+                <li><a class="dropdown-item" href="pages/portal-personas-anterior.html">Portal Personas<br>(Versión anterior)</a></li>
               </ul>
             </div>
           </div>
@@ -509,6 +509,31 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    const restoreHeaderState = () => {
+      const topbar = document.querySelector('.topbar');
+      const topbarContent = document.querySelector('.topbar-content');
+      const portalToggle = document.querySelector('.nav-actions .dropdown-toggle');
+      const portalMenu = document.querySelector('.nav-actions .dropdown-menu');
+
+      if (topbar) {
+        topbar.style.display = 'block';
+      }
+
+      if (topbarContent) {
+        topbarContent.style.display = 'flex';
+      }
+
+      if (portalToggle && portalMenu) {
+        portalToggle.classList.remove('show');
+        portalToggle.setAttribute('aria-expanded', 'false');
+        portalMenu.classList.remove('show');
+        portalMenu.removeAttribute('data-bs-popper');
+      }
+    };
+
+    window.addEventListener('pageshow', restoreHeaderState);
+    document.addEventListener('DOMContentLoaded', restoreHeaderState);
+
     // Control personalizado para pausar y reproducir el carrusel principal.
     const carouselElement = document.querySelector('#carouselPrincipal');
     const pauseButton = document.querySelector('.carousel-pause');

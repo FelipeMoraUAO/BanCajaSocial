@@ -13,7 +13,7 @@ img{max-width:100%;display:block}
 .container{max-width:1202px;padding-left:0;padding-right:0}
 /* Header: barra superior, logo, menu principal y botones de acceso */
 .site-header{position:sticky;top:0;z-index:1100;background:#ffffff;box-shadow:none}
-.topbar{background:var(--ink);color:#ffffff}
+.topbar{display:block;min-height:35px;background:var(--ink);color:#ffffff}
 .topbar-content{min-height:35px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
 .audience-tabs,.topbar-links,.nav-actions{display:flex;align-items:center}
 .audience-tabs{align-self:stretch}
@@ -67,7 +67,8 @@ img{max-width:100%;display:block}
 /* Elementos que se activan solo en el menu movil */
 .mobile-menu-header,.mobile-menu-search,.mobile-menu-extra{display:none}
 @media (min-width:992px){
-  .topbar{display:none}
+  .topbar{display:block !important}
+  .topbar-content{display:flex !important}
   .main-nav .container{width:min(1202px,calc(100% - 96px))}
 }
 /* Carrusel principal y banners de portada */
