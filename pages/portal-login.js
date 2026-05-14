@@ -74,6 +74,7 @@ const acceptRules = document.querySelector("#accept-rules");
 const registerVisual = document.querySelector(".register-visual");
 const registerStepOne = document.querySelector('[data-step="1"]');
 const registerStepTwo = document.querySelector('[data-step="2"]');
+const registerWelcomeStep = document.querySelector('[data-step="3"]');
 const registerForm = document.querySelector(".register-form");
 const registerEmail = document.querySelector("#register-email");
 const registerEmailError = document.querySelector("#register-email-error");
@@ -160,6 +161,23 @@ if (registerForm) {
   registerForm.addEventListener("submit", (event) => {
     event.preventDefault();
     validateRegisterStepTwo();
+
+    if (stepTwoButton && stepTwoButton.disabled) {
+      return;
+    }
+
+    if (registerPage && registerStepTwo && registerWelcomeStep) {
+      registerPage.dataset.registerStep = "3";
+
+      if (registerVisual) {
+        registerVisual.dataset.stepVisual = "3";
+      }
+
+      registerStepTwo.hidden = true;
+      registerStepTwo.classList.remove("is-active");
+      registerWelcomeStep.hidden = false;
+      registerWelcomeStep.classList.add("is-active");
+    }
   });
 }
 
