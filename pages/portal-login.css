@@ -685,22 +685,29 @@ hr {
   .legacy-hero,
   .recovery-visual,
   .register-visual {
-    min-height: 298px;
+    min-height: 292px;
     background-size: cover;
   }
 
   .login-visual-modern {
-    background-image: url("../Images/background-2.png");
-    background-position: center top;
+    background-position: center 28%;
   }
 
   .recovery-visual {
-    background-image: url("../Images/background-4.png");
-    background-position: center top;
+    min-height: 292px;
+    background-position: 46% 34%;
   }
 
   .register-visual {
     display: none;
+  }
+
+  .register-visual[data-step-visual="2"] {
+    background-position: center 38%;
+  }
+
+  .legacy-hero {
+    background-position: center 28%;
   }
 
   .login-panel,
@@ -713,7 +720,7 @@ hr {
 
   .register-panel {
     min-height: 100vh;
-    padding: 20px 14px 44px;
+    padding: 20px 24px 44px;
   }
 
   .login-card .brand-logo,
@@ -809,9 +816,7 @@ hr {
 
   .legacy-hero {
     padding: 31px 40px;
-    background:
-      linear-gradient(180deg, rgba(0, 37, 61, 0.06), rgba(0, 37, 61, 0.08)),
-      url("../Images/background-2.png") center top / cover;
+    background-size: cover;
   }
 
   .legacy-hero .brand-logo {
@@ -819,5 +824,14 @@ hr {
     background: transparent;
     border-radius: 0;
     box-shadow: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .login-visual,
+  .legacy-hero,
+  .recovery-visual,
+  .register-visual {
+    min-height: 270px;
   }
 }
