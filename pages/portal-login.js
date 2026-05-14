@@ -1,16 +1,3 @@
-const usernameFields = [
-  {
-    input: document.querySelector("#username"),
-    button: document.querySelector("#next-button"),
-    error: document.querySelector("#username-error")
-  },
-  {
-    input: document.querySelector("#legacy-username"),
-    button: document.querySelector("#legacy-next-button"),
-    error: document.querySelector("#legacy-username-error")
-  }
-];
-
 const modernVisual = document.querySelector(".login-visual-modern");
 const availableBackgrounds = ["1", "2", "3", "4"];
 
@@ -19,19 +6,53 @@ if (modernVisual) {
   modernVisual.dataset.background = randomBackground;
 }
 
-const usernamePattern = /^(CC|CE|NI|TI|PE)\d+$/i;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-usernameFields.forEach(({ input, button, error }) => {
-  if (!input || !button || !error) {
+const loginForms = [
+  {
+    email: document.querySelector("#email"),
+    password: document.querySelector("#password"),
+    button: document.querySelector("#next-button"),
+    emailError: document.querySelector("#email-error"),
+    passwordError: document.querySelector("#password-error")
+  },
+  {
+    email: document.querySelector("#legacy-email"),
+    password: document.querySelector("#legacy-password"),
+    button: document.querySelector("#legacy-next-button"),
+    emailError: document.querySelector("#legacy-email-error"),
+    passwordError: document.querySelector("#legacy-password-error")
+  }
+];
+
+const validateLoginForm = ({ email, password, button, emailError, passwordError }) => {
+  if (!email || !password || !button) {
     return;
   }
 
-  input.addEventListener("input", () => {
-    const value = input.value.trim();
-    const isValid = usernamePattern.test(value);
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const isEmailValid = emailPattern.test(emailValue);
+  const isPasswordValid = passwordValue.length > 0;
 
-    button.disabled = !isValid;
-    error.hidden = value.length === 0 || isValid;
+  button.disabled = !(isEmailValid && isPasswordValid);
+
+  if (emailError) {
+    emailError.hidden = emailValue.length === 0 || isEmailValid;
+  }
+
+  if (passwordError) {
+    passwordError.hidden = passwordValue.length === 0 || isPasswordValid;
+  }
+};
+
+loginForms.forEach((form) => {
+  if (!form.email || !form.password) {
+    return;
+  }
+
+  [form.email, form.password].forEach((input) => {
+    input.addEventListener("input", () => validateLoginForm(form));
   });
 });
 
@@ -44,5 +65,126 @@ if (forgotButton && forgotMenu) {
 
     forgotButton.setAttribute("aria-expanded", String(!isOpen));
     forgotMenu.hidden = isOpen;
+  });
+}
+
+const registerPage = document.querySelector(".register-page");
+const stepOneButton = document.querySelector("#register-step-one-button");
+const acceptRules = document.querySelector("#accept-rules");
+const registerVisual = document.querySelector(".register-visual");
+const registerStepOne = document.querySelector('[data-step="1"]');
+const registerStepTwo = document.querySelector('[data-step="2"]');
+const registerForm = document.querySelector(".register-form");
+const registerEmail = document.querySelector("#register-email");
+const registerEmailError = document.querySelector("#register-email-error");
+const registerPassword = document.querySelector("#register-password");
+const registerPasswordError = document.querySelector("#register-password-error");
+const confirmPassword = document.querySelector("#confirm-password");
+const confirmPasswordError = document.querySelector("#confirm-password-error");
+const stepTwoButton = document.querySelector("#register-step-two-button");
+const recoveryForm = document.querySelector(".recovery-form");
+const recoveryEmail = document.querySelector("#recovery-email");
+const recoveryEmailError = document.querySelector("#recovery-email-error");
+const recoveryButton = document.querySelector("#recovery-button");
+
+if (acceptRules && stepOneButton) {
+  acceptRules.addEventListener("change", () => {
+    stepOneButton.disabled = !acceptRules.checked;
+  });
+}
+
+if (stepOneButton && registerPage && registerStepOne && registerStepTwo && registerVisual) {
+  stepOneButton.addEventListener("click", () => {
+    registerPage.dataset.registerStep = "2";
+    registerVisual.dataset.stepVisual = "2";
+    registerStepOne.hidden = true;
+    registerStepOne.classList.remove("is-active");
+    registerStepTwo.hidden = false;
+    registerStepTwo.classList.add("is-active");
+
+    if (registerEmail) {
+      registerEmail.focus();
+    }
+  });
+}
+
+const validateRegisterStepTwo = () => {
+  if (!registerEmail || !registerPassword || !confirmPassword || !stepTwoButton) {
+    return;
+  }
+
+  const emailValue = registerEmail.value.trim();
+  const passwordValue = registerPassword.value.trim();
+  const confirmValue = confirmPassword.value.trim();
+  const isEmailValid = emailPattern.test(emailValue);
+  const isPasswordValid = passwordValue.length >= 8;
+  const passwordsMatch = confirmValue.length > 0 && passwordValue === confirmValue;
+
+  stepTwoButton.disabled = !(isEmailValid && isPasswordValid && passwordsMatch);
+
+  if (registerEmailError) {
+    registerEmailError.hidden = emailValue.length === 0 || isEmailValid;
+  }
+
+  if (registerPasswordError) {
+    registerPasswordError.hidden = passwordValue.length === 0 || isPasswordValid;
+  }
+
+  if (confirmPasswordError) {
+    confirmPasswordError.hidden = confirmValue.length === 0 || passwordsMatch;
+  }
+};
+
+[registerEmail, registerPassword, confirmPassword].forEach((input) => {
+  if (input) {
+    input.addEventListener("input", validateRegisterStepTwo);
+  }
+});
+
+document.querySelectorAll(".password-toggle").forEach((toggle) => {
+  toggle.addEventListener("click", () => {
+    const inputId = toggle.getAttribute("aria-controls");
+    const passwordInput = inputId ? document.querySelector(`#${inputId}`) : null;
+
+    if (!passwordInput) {
+      return;
+    }
+
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    toggle.setAttribute("aria-label", isPassword ? "Ocultar contraseña" : "Mostrar contraseña");
+  });
+});
+
+if (registerForm) {
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validateRegisterStepTwo();
+  });
+}
+
+const validateRecoveryForm = () => {
+  if (!recoveryEmail || !recoveryButton) {
+    return;
+  }
+
+  const emailValue = recoveryEmail.value.trim();
+  const isEmailValid = emailPattern.test(emailValue);
+
+  recoveryButton.disabled = !isEmailValid;
+
+  if (recoveryEmailError) {
+    recoveryEmailError.hidden = emailValue.length === 0 || isEmailValid;
+  }
+};
+
+if (recoveryEmail) {
+  recoveryEmail.addEventListener("input", validateRecoveryForm);
+}
+
+if (recoveryForm) {
+  recoveryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validateRecoveryForm();
   });
 }

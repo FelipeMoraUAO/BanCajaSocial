@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Registro - Portal Personas Banco Caja Social</title>
+  <link rel="icon" type="image/webp" href="../Images/iso-ban-caja-social.webp">
+  <link rel="stylesheet" href="portal-login.css">
+</head>
+<body>
+  <main class="register-page" data-register-step="1">
+    <section class="register-visual" data-step-visual="1" aria-label="Registro Portal Personas Banco Caja Social"></section>
+
+    <section class="register-panel" aria-labelledby="register-title">
+      <div class="register-card">
+        <img class="brand-logo" src="../Images/Logo-Banco-Caja-Social.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundación Grupo Social.">
+
+        <section class="register-step is-active" data-step="1" aria-labelledby="register-title">
+          <div class="step-header">
+            <span>Paso 1/2</span>
+            <div class="step-track" aria-hidden="true">
+              <span style="width: 50%"></span>
+            </div>
+          </div>
+
+          <h1 id="register-title">Crear cuenta</h1>
+
+          <p class="register-intro">
+            Para registrarse en el Portal Personas solo necesita un correo electrónico activo y una contraseña segura.
+            Antes de comenzar, tenga presente:
+          </p>
+
+          <ul class="register-list">
+            <li>
+              <span aria-hidden="true">✓</span>
+              <p>El <strong>correo electrónico</strong> será su dato de ingreso al portal.</p>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span>
+              <p>La <strong>contraseña</strong> debe ser fácil de recordar para usted y difícil de adivinar para otras personas.</p>
+            </li>
+            <li>
+              <span aria-hidden="true">✓</span>
+              <p>Use un correo al que tenga acceso, porque allí podrá recibir información y recuperar su contraseña.</p>
+            </li>
+          </ul>
+
+          <label class="acceptance-check" for="accept-rules">
+            <input id="accept-rules" type="checkbox">
+            <span>Confirmo que he leído y aceptado el <a href="#">Reglamento de internet transaccional</a></span>
+          </label>
+
+          <button class="next-button register-continue" id="register-step-one-button" type="button" disabled>Continuar</button>
+
+          <hr>
+
+          <p class="register-copy">
+            ¿Ya tiene una cuenta?
+            <a href="portal-personas.html">Regresar al inicio de sesión</a>
+          </p>
+        </section>
+
+        <section class="register-step" data-step="2" aria-labelledby="register-step-two-title" hidden>
+          <div class="step-header">
+            <span>Paso 2/2</span>
+            <div class="step-track" aria-hidden="true">
+              <span style="width: 100%"></span>
+            </div>
+          </div>
+
+          <h1 id="register-step-two-title">Registrar datos</h1>
+
+          <p class="register-intro">Ingrese los datos que usará para acceder al Portal Personas.</p>
+
+          <form class="register-form" action="#" method="post" novalidate>
+            <div class="form-field">
+              <label for="register-email">Correo electrónico</label>
+              <input id="register-email" name="email" type="email" autocomplete="email">
+              <small>Ejemplo: nombre@correo.com</small>
+              <p class="input-error" id="register-email-error" hidden>
+                Ingrese un correo electrónico válido.
+              </p>
+            </div>
+
+            <div class="form-field">
+              <label for="register-password">Contraseña</label>
+              <div class="password-wrap">
+                <input id="register-password" name="password" type="password" autocomplete="new-password">
+                <button class="password-toggle" type="button" aria-label="Mostrar contraseña" aria-controls="register-password">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+              <small>Mínimo 8 caracteres.</small>
+              <p class="input-error" id="register-password-error" hidden>
+                La contraseña debe tener mínimo 8 caracteres.
+              </p>
+            </div>
+
+            <div class="form-field">
+              <label for="confirm-password">Confirmar contraseña</label>
+              <div class="password-wrap">
+                <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password">
+                <button class="password-toggle" type="button" aria-label="Mostrar contraseña" aria-controls="confirm-password">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </button>
+              </div>
+              <p class="input-error" id="confirm-password-error" hidden>
+                Las contraseñas no coinciden.
+              </p>
+            </div>
+
+            <button class="next-button register-continue" id="register-step-two-button" type="submit" disabled>Registrarse</button>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="portal-login.js"></script>
+</body>
+</html>

@@ -4,42 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Inicio de sesión - Portal Personas versión anterior</title>
+  <title>Inicio de sesi&oacute;n - Portal Personas versi&oacute;n anterior</title>
   <link rel="icon" type="image/webp" href="../Images/iso-ban-caja-social.webp">
   <link rel="stylesheet" href="portal-login.css">
 </head>
 <body>
   <main class="login-page login-page-legacy">
-    <section class="legacy-hero" aria-label="Portal Personas versión anterior">
-      <img class="brand-logo" src="../Images/Logo_type2.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundación Grupo Social.">
+    <section class="legacy-hero" aria-label="Portal Personas versi&oacute;n anterior">
+      <img class="brand-logo" src="../Images/Logo-Banco-Caja-Social.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundaci&oacute;n Grupo Social.">
     </section>
 
     <section class="legacy-panel" aria-labelledby="legacy-title">
       <div class="legacy-card">
-        <h1 id="legacy-title">Portal Personas<br><span>Versión anterior</span></h1>
+        <h1 id="legacy-title">Portal Personas<br><span>Versi&oacute;n anterior</span></h1>
         <p class="login-help">
-          Ingrese con su tipo y número de identificación, sin espacios, puntos ni comas.
+          Ingrese con su correo electr&oacute;nico registrado y la contrase&ntilde;a del portal.
         </p>
 
         <form class="login-form" action="#" method="post" novalidate>
           <div class="form-field">
-            <label for="legacy-username">Usuario</label>
-            <input id="legacy-username" name="username" type="text" autocomplete="off" autofocus>
-            <small>Ejemplo: CC1234567890</small>
-            <p class="input-error" id="legacy-username-error" hidden>
-              Datos incorrectos. Recuerde iniciar con CC, CE, NI, TI, PE.
+            <label for="legacy-email">Correo electr&oacute;nico</label>
+            <input id="legacy-email" name="email" type="email" autocomplete="email" autofocus>
+            <small>Ejemplo: nombre@correo.com</small>
+            <p class="input-error" id="legacy-email-error" hidden>
+              Ingrese un correo electr&oacute;nico v&aacute;lido.
+            </p>
+          </div>
+
+          <div class="form-field">
+            <label for="legacy-password">Contrase&ntilde;a</label>
+            <div class="password-wrap">
+              <input id="legacy-password" name="password" type="password" autocomplete="current-password">
+              <button class="password-toggle" type="button" aria-label="Mostrar contrase&ntilde;a" aria-controls="legacy-password">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <p class="input-error" id="legacy-password-error" hidden>
+              Ingrese su contrase&ntilde;a.
             </p>
           </div>
 
           <div class="legacy-actions">
             <button class="primary-square-button" id="legacy-next-button" type="submit" disabled>Ingresar</button>
-            <a href="#">¿Olvidó su contraseña?</a>
+            <a href="recuperar-contrasena.html">&iquest;Olvid&oacute; su contrase&ntilde;a?</a>
           </div>
         </form>
 
         <div class="legacy-register">
-          <span>¿No está registrado?</span>
-          <a href="#">Regístrese aquí</a>
+          <span>&iquest;No est&aacute; registrado?</span>
+          <a href="registro.html">Reg&iacute;strese aqu&iacute;</a>
         </div>
       </div>
     </section>

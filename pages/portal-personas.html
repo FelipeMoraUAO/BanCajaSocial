@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -14,28 +14,42 @@
 
     <section class="login-panel" aria-labelledby="login-title">
       <div class="login-card">
-        <img class="brand-logo" src="../Images/Logo_type2.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundación Grupo Social.">
+        <img class="brand-logo" src="../Images/Logo-Banco-Caja-Social.png" alt="Banco Caja Social. Su banco amigo. Una empresa de Fundación Grupo Social.">
 
         <h1 id="login-title">Bienvenido al Portal Personas</h1>
 
         <p class="login-help">
-          Recuerde que su usuario está compuesto por su Tipo de Identificación
-          <strong>(CC, CE, NI, TI, PE)</strong> y su Número de Identificación sin
-          espacios, puntos ni comas.
+          Ingrese con el correo electrónico registrado en el banco y su contraseña del portal.
         </p>
 
         <form class="login-form" action="#" method="post" novalidate>
           <div class="form-field">
-            <label for="username">Usuario</label>
-            <input id="username" name="username" type="text" autocomplete="off" autofocus>
-            <small>Ejemplo: CC1234567890</small>
-            <p class="input-error" id="username-error" hidden>
-              Datos incorrectos. Recuerde iniciar con CC, CE, NI, TI, PE.
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" autofocus>
+            <small>Ejemplo: nombre@correo.com</small>
+            <p class="input-error" id="email-error" hidden>
+              Ingrese un correo electrónico válido.
+            </p>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Contraseña</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password">
+              <button class="password-toggle" type="button" aria-label="Mostrar contraseña" aria-controls="password">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+            <p class="input-error" id="password-error" hidden>
+              Ingrese su contraseña.
             </p>
           </div>
 
           <div class="login-actions">
-            <button class="next-button" id="next-button" type="submit" disabled>Siguiente</button>
+            <button class="next-button" id="next-button" type="submit" disabled>Ingresar</button>
 
             <div class="forgot-wrapper">
               <button class="forgot-button" type="button" id="forgot-button" aria-expanded="false" aria-controls="forgot-menu">
@@ -43,7 +57,7 @@
                 <span aria-hidden="true"></span>
               </button>
               <div class="forgot-menu" id="forgot-menu" hidden>
-                <a href="#">¿Olvidó su contraseña?</a>
+                <a href="recuperar-contrasena.html">Recuperar contraseña</a>
               </div>
             </div>
           </div>
@@ -53,7 +67,7 @@
 
         <p class="register-copy">
           ¿Es un cliente nuevo?
-          <a href="#">Registrarse</a>
+          <a href="registro.html">Registrarse</a>
         </p>
       </div>
     </section>
